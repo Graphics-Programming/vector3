@@ -63,41 +63,45 @@ var Vector3 = function (x = 0, y = 0, z = 0) {
 		this.z = this.z * scalar;
 		return this;
 	};
-
 	this.length = function () {
 		// todo - return the magnitude (a.k.a length) of this vector (1pt)
 		// This should NOT change the values of this.x, this.y, and this.z
-		return (Math.sqrt((this.x * this.x) + (this.y * this.y)+this.z *this.z));
+		return (Math.sqrt((this.x * this.x) + (this.y * this.y) + this.z * this.z));
 	};
 
 	this.lengthSqr = function () {
 		// todo - return the squared magnitude of this vector ||v||^2 (1pt)
 		// This should NOT change the values of this.x, this.y, and this.z
-		return (this.x * this.x) + (this.y * this.y)+(this.z *this.z);
+		return ((this.x * this.x) + (this.y * this.y) + (this.z * this.z));
 	};
 
 	this.normalized = function () {
 		// todo - return a new vector that is a normalized version of this vector (1pt)
 		// This should NOT change the values of this.x, this.y, and this.z
-		 return this;// Should return a new vector that is not this
+		return this; // Should return a new vector that is not this
 	};
 
 	this.normalize = function () {
 		// todo - Change the components of this vector so that its magnitude will equal 1. (1pt)
 		// This SHOULD change the values of this.x, this.y, and this.z
-		
-		return this; 
+
+		return this;
 	};
 
 	this.dot = function (other) {
 		// todo - return the dot product between this vector and "other" (5pt)
 		// This should NOT change the values of this.x, this.y, and this.z
-		return 0;
+		return this.x * other.x + this.y * other.y + this.z * other.z;
 	};
 
 	this.cross = function (other) {
 		// todo - return the cross product (as a new vector) between this vector and "other" (3pt)
 		// This should NOT change the values of this.x, this.y, and this.z
-		return null;
+		var result = {
+			x: this.y * other.z - this.z * other.y,
+			y: this.z * other.x - this.x * other.z,
+			z: this.x * other.y - this.y * other.x
+		}
+		return result;
 	}
 };
