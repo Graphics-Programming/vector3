@@ -1,12 +1,12 @@
 /*
  * An object representing a 3d vector to make operations simple and concise.
  */
-
+// todo - make sure to set a default value in case x, y, or z is not passed in
 var Vector3 = function (x = 0, y = 0, z = 0) {
+
 	this.x = x;
 	this.y = y;
 	this.z = z;
-	// todo - make sure to set a default value in case x, y, or z is not passed in
 
 	this.set = function (x, y, z) {
 		//todo set this' values to those from x, y, and z
@@ -78,12 +78,18 @@ var Vector3 = function (x = 0, y = 0, z = 0) {
 	this.normalized = function () {
 		// todo - return a new vector that is a normalized version of this vector (1pt)
 		// This should NOT change the values of this.x, this.y, and this.z
-		return this; // Should return a new vector that is not this
+		var newVector = new Vector3(this.x / this.length(), this.y / this.length(), this.z / this.length());
+		return newVector; // Should return a new vector that is not this
 	};
 
 	this.normalize = function () {
 		// todo - Change the components of this vector so that its magnitude will equal 1. (1pt)
 		// This SHOULD change the values of this.x, this.y, and this.z
+		var normVector = this.normalized();
+
+		this.x = (normVector.x);
+		this.y = (normVector.y);
+		this.z = (normVector.z);
 
 		return this;
 	};
